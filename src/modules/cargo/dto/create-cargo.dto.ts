@@ -37,15 +37,7 @@ export class CreateCargoDto {
     maxLength: 255,
   })
   sede: string;
-
-  @Type(() => EstadoCargo)
-  @IsNotEmptyObject()
-  @ApiProperty({
-    description: 'Estado del Cargo',
-    type: () => EstadoCargo,
-  })
-  estadoCargo: EstadoCargo;
-
+  
   @IsNotEmptyObject()
   @ApiProperty({
     description: 'Tipo del Cargo',

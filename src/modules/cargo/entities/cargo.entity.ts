@@ -45,7 +45,7 @@ export class Cargo {
   organismoJurisdiccional: OrganismoJurisdiccional;
 
   @ManyToOne(() => EstadoCargo, (estadoCargo) => estadoCargo.id, {
-    nullable: false,
+    nullable: true,
     createForeignKeyConstraints: true,
   })
   estadoCargo: EstadoCargo;
