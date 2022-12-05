@@ -59,8 +59,11 @@ export class Cargo {
   @Column({ nullable: false, default: true })
   funciona: boolean;
 
-  @Column({ nullable: true })
+  @Column({ type: "decimal", precision: 15, nullable: true })
   numero: number;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  fechaAlta: Date;
 
   @Column({ length: 255, nullable: true })
   sede: string;
