@@ -9,12 +9,12 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator';
-import { DepartamentoJudicial } from 'src/modules/departamentojudicial/entities';
-import { EstadoCargo } from 'src/modules/estadocargo/entities';
-import { CreateFueroDto } from 'src/modules/fuero/dto';
-import { Fuero } from 'src/modules/fuero/entities';
-import { OrganismoJurisdiccional } from 'src/modules/organismojurisdiccional/entities';
-import { TipoCargo } from 'src/modules/tipocargo/entities';
+import { DepartamentoJudicial } from '../../../modules/departamentojudicial/entities';
+import { EstadoCargo } from '../../../modules/estadocargo/entities';
+import { CreateFueroDto } from '../../../modules/fuero/dto';
+import { Fuero } from '../../../modules/fuero/entities';
+import { OrganismoJurisdiccional } from '../../../modules/organismojurisdiccional/entities';
+import { TipoCargo } from '../../../modules/tipocargo/entities';
 export class CreateCargoDto {
   @ApiProperty()
   @IsNotEmpty({ message: 'la propiedad numero debe existir' })
@@ -39,7 +39,7 @@ export class CreateCargoDto {
   sede: string;
 
   @Type(() => EstadoCargo)
-  @IsNotEmptyObject()
+  @Allow()
   @ApiProperty({
     description: 'Estado del Cargo',
     type: () => EstadoCargo,

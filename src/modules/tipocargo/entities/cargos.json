@@ -1,0 +1,41 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "createdAt": "2022-11-30T23:16:59.965Z",
+            "funciona": true,
+            "numero": 125,
+            "sede": "Junin",
+            "estadoCargo": {
+                "id": 1,
+                "descripcion": "NO DESIGNADO",
+                "esVacancia": true,
+                "esInicial": true
+            },
+            "tipoCargo": {
+                "id": 2,
+                "descripcion": "Procurador/a"
+            },
+            "fuero": {
+                "id": 4,
+                "descripcion": "Familia"
+            },
+            "departamentoJudicial": {
+                "id": 3,
+                "descripcion": "Bahía Blanca"
+            },
+            "organismoJurisdiccional": {
+                "id": 5,
+                "descripcion": "Tribunal en lo criminal"
+            }
+        }
+    ],
+    "meta": {
+        "page": 1,
+        "take": 10,
+        "itemCount": 1,
+        "pageCount": 1,
+        "hasPreviousPage": false,
+        "hasNextPage": false
+    }
+}
