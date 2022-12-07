@@ -16,20 +16,18 @@ import { Fuero } from 'src/modules/fuero/entities';
 import { OrganismoJurisdiccional } from 'src/modules/organismojurisdiccional/entities';
 import { TipoCargo } from 'src/modules/tipocargo/entities';
 export class CreateCargoDto {
-  @ApiProperty()
-  @IsNotEmpty({ message: 'la propiedad numero debe existir' })
-  @IsNumber(
-    { allowNaN: false, maxDecimalPlaces: 0 },
-    { message: 'Debe ser un número sin decimales' },
-  )
-  numero: number;
+  @IsString({ message: 'La propiedad numero dede ser string' })
+  @MaxLength(255)
+  @ApiProperty({
+    maxLength: 255
+  })
+  numero: string;
 
   @ApiProperty()
   @IsNotEmpty({ message: 'la propiedad funciona debe existir' })
   @IsBoolean({ message: 'la propidedad funciona debe ser boolena' })
   public funciona: boolean;
 
-  @IsNotEmpty({ message: 'la propiedad sede debe existir' })
   @IsString({ message: 'La propiedad dese dede ser string' })
   @MaxLength(255)
   @ApiProperty({
@@ -38,6 +36,13 @@ export class CreateCargoDto {
   })
   sede: string;
   
+  @IsString({ message: 'El nombre del archivo debe ser string' })
+  @MaxLength(1024)
+  @ApiProperty({
+    maxLength: 1024
+  })
+  nombreArchivo: string;
+
   @IsNotEmptyObject()
   @ApiProperty({
     description: 'Tipo del Cargo',

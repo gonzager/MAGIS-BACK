@@ -59,8 +59,8 @@ export class Cargo {
   @Column({ nullable: false, default: true })
   funciona: boolean;
 
-  @Column({ type: "decimal", precision: 15, nullable: true })
-  numero: number;
+  @Column({ length: 255, nullable: true })
+  numero: string;
 
   @Column({ type: 'timestamptz', nullable: true })
   fechaAlta: Date;
@@ -68,9 +68,12 @@ export class Cargo {
   @Column({ length: 255, nullable: true })
   sede: string;
 
+  @Column({ length: 1024, nullable: true })
+  nombreArchivo: string;
+
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
   @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAd: Date;
+  updatedAt: Date;
 }
