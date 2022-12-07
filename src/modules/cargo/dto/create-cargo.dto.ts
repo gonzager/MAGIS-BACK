@@ -1,21 +1,19 @@
 import { ApiProperty, getSchemaPath } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
 import {
-  Allow,
   IsBoolean,
   IsNotEmpty,
   IsNotEmptyObject,
-  IsNumber,
   IsString,
+  IsDate,
   MaxLength,
 } from 'class-validator';
 import { DepartamentoJudicial } from 'src/modules/departamentojudicial/entities';
-import { EstadoCargo } from 'src/modules/estadocargo/entities';
-import { CreateFueroDto } from 'src/modules/fuero/dto';
 import { Fuero } from 'src/modules/fuero/entities';
 import { OrganismoJurisdiccional } from 'src/modules/organismojurisdiccional/entities';
 import { TipoCargo } from 'src/modules/tipocargo/entities';
+
 export class CreateCargoDto {
+  @IsNotEmpty({ message: 'La propiedad numero debe existir' })
   @IsString({ message: 'La propiedad numero dede ser string' })
   @MaxLength(255)
   @ApiProperty({
@@ -28,6 +26,7 @@ export class CreateCargoDto {
   @IsBoolean({ message: 'la propidedad funciona debe ser boolena' })
   public funciona: boolean;
 
+  @IsNotEmpty({ message: 'la propiedad sede debe existir' })
   @IsString({ message: 'La propiedad dese dede ser string' })
   @MaxLength(255)
   @ApiProperty({
@@ -36,6 +35,14 @@ export class CreateCargoDto {
   })
   sede: string;
   
+  @IsNotEmpty({ message: "La propiedad fecha alta debe existir"})
+  @IsDate()
+  @ApiProperty({
+    description: 'Fecha del alta de...',
+  })
+  fechaAlta: Date
+
+  @IsNotEmpty({ message: 'El nombre del archivo debe existir' })
   @IsString({ message: 'El nombre del archivo debe ser string' })
   @MaxLength(1024)
   @ApiProperty({
