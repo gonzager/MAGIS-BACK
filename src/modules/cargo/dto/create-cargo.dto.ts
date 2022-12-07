@@ -1,28 +1,25 @@
 import { ApiProperty, getSchemaPath } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
 import {
-  Allow,
   IsBoolean,
   IsNotEmpty,
   IsNotEmptyObject,
-  IsNumber,
   IsString,
+  IsDate,
   MaxLength,
 } from 'class-validator';
 import { DepartamentoJudicial } from '../../../modules/departamentojudicial/entities';
-import { EstadoCargo } from '../../../modules/estadocargo/entities';
-import { CreateFueroDto } from '../../../modules/fuero/dto';
 import { Fuero } from '../../../modules/fuero/entities';
 import { OrganismoJurisdiccional } from '../../../modules/organismojurisdiccional/entities';
 import { TipoCargo } from '../../../modules/tipocargo/entities';
+
 export class CreateCargoDto {
-  @ApiProperty()
-  @IsNotEmpty({ message: 'la propiedad numero debe existir' })
-  @IsNumber(
-    { allowNaN: false, maxDecimalPlaces: 0 },
-    { message: 'Debe ser un número sin decimales' },
-  )
-  numero: number;
+  @IsNotEmpty({ message: 'La propiedad numero debe existir' })
+  @IsString({ message: 'La propiedad numero dede ser string' })
+  @MaxLength(255)
+  @ApiProperty({
+    maxLength: 255
+  })
+  numero: string;
 
   @ApiProperty()
   @IsNotEmpty({ message: 'la propiedad funciona debe existir' })
@@ -37,14 +34,21 @@ export class CreateCargoDto {
     maxLength: 255,
   })
   sede: string;
-
-  @Type(() => EstadoCargo)
-  @Allow()
+  
+  @IsNotEmpty({ message: "La propiedad fecha alta debe existir"})
+  @IsDate()
   @ApiProperty({
-    description: 'Estado del Cargo',
-    type: () => EstadoCargo,
+    description: 'Fecha del alta de...',
   })
-  estadoCargo: EstadoCargo;
+  fechaAlta: Date
+
+  @IsNotEmpty({ message: 'El nombre del archivo debe existir' })
+  @IsString({ message: 'El nombre del archivo debe ser string' })
+  @MaxLength(1024)
+  @ApiProperty({
+    maxLength: 1024
+  })
+  nombreArchivo: string;
 
   @IsNotEmptyObject()
   @ApiProperty({
