@@ -1,4 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { OrganismoJurisdiccional } from './entities';
 import { OrganismojurisdiccionalService } from './organismojurisdiccional.service';
 
 describe('OrganismojurisdiccionalService', () => {
@@ -6,10 +8,18 @@ describe('OrganismojurisdiccionalService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [OrganismojurisdiccionalService],
+      providers: [
+        OrganismojurisdiccionalService,
+        {
+          provide: getRepositoryToken(OrganismoJurisdiccional),
+          useValue: {},
+        },
+      ],
     }).compile();
 
-    service = module.get<OrganismojurisdiccionalService>(OrganismojurisdiccionalService);
+    service = module.get<OrganismojurisdiccionalService>(
+      OrganismojurisdiccionalService,
+    );
   });
 
   it('should be defined', () => {

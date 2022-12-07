@@ -7,10 +7,10 @@ import {
   IsDate,
   MaxLength,
 } from 'class-validator';
-import { DepartamentoJudicial } from 'src/modules/departamentojudicial/entities';
-import { Fuero } from 'src/modules/fuero/entities';
-import { OrganismoJurisdiccional } from 'src/modules/organismojurisdiccional/entities';
-import { TipoCargo } from 'src/modules/tipocargo/entities';
+import { DepartamentoJudicial } from '../../../modules/departamentojudicial/entities';
+import { Fuero } from '../../../modules/fuero/entities';
+import { OrganismoJurisdiccional } from '../../../modules/organismojurisdiccional/entities';
+import { TipoCargo } from '../../../modules/tipocargo/entities';
 
 export class CreateCargoDto {
   @IsNotEmpty({ message: 'La propiedad numero debe existir' })

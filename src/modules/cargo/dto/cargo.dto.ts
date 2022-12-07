@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude, Expose, Type } from 'class-transformer';
-import { DepartamentoJudicial } from 'src/modules/departamentojudicial/entities';
-import { EstadoCargo } from 'src/modules/estadocargo/entities';
-import { Fuero } from 'src/modules/fuero/entities';
-import { OrganismoJurisdiccional } from 'src/modules/organismojurisdiccional/entities';
-import { TipoCargo } from 'src/modules/tipocargo/entities';
+import { DepartamentoJudicial } from '../../../modules/departamentojudicial/entities';
+import { EstadoCargo } from '../../..//modules/estadocargo/entities';
+import { Fuero } from '../../..//modules/fuero/entities';
+import { OrganismoJurisdiccional } from '../../../modules/organismojurisdiccional/entities';
+import { TipoCargo } from '../../../modules/tipocargo/entities';
 
 @Exclude()
 export class CargoDto {

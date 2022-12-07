@@ -8,7 +8,7 @@ export const typeOrmAsynConfig: TypeOrmModuleAsyncOptions = {
   useFactory: async (): Promise<TypeOrmModuleOptions> => {
     return {
       type: 'postgres',
-      host: process.env.DATABASE_HOST || 'localhost',
+      host: process.env.DATABASE_HOST || 'localhost33',
       port: parseInt(process.env.DATABASE_PORT) || 5432,
       username: process.env.DATABASE_USER || 'postgres',
       password: process.env.DATABASE_PASS || 'postgres',
@@ -20,8 +20,8 @@ export const typeOrmAsynConfig: TypeOrmModuleAsyncOptions = {
       extra: {
         charset: 'utf8mb4_unicode_ci',
       },
-      synchronize: !!process.env.DATABASE_SYNCHRONIZE,
-      logging: !!process.env.DATABASE_LOGGING,
+      synchronize: process.env.DATABASE_SYNCHRONIZE === 'true' ? true : false,
+      logging: process.env.DATABASE_LOGGING === 'true' ? true : false,
     };
   },
 };
